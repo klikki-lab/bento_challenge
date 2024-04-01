@@ -1,0 +1,198 @@
+{
+	"width": 1280,
+	"height": 720,
+	"fps": 30,
+	"maxPoints": 1,
+	"main": "./script/_bootstrap.js",
+	"assets": {
+		"main": {
+			"type": "script",
+			"path": "script/main.js",
+			"global": true
+		},
+		"parameterObject": {
+			"type": "script",
+			"path": "script/parameterObject.js",
+			"global": true
+		},
+		"_bootstrap": {
+			"type": "script",
+			"path": "script/_bootstrap.js",
+			"global": true
+		},
+		"commonScene": {
+			"type": "script",
+			"path": "script/common/commonScene.js",
+			"global": true
+		},
+		"fontSize": {
+			"type": "script",
+			"path": "script/common/fontSize.js",
+			"global": true
+		},
+		"character": {
+			"type": "script",
+			"path": "script/game_scene/character/character.js",
+			"global": true
+		},
+		"player": {
+			"type": "script",
+			"path": "script/game_scene/character/player.js",
+			"global": true
+		},
+		"student": {
+			"type": "script",
+			"path": "script/game_scene/character/student.js",
+			"global": true
+		},
+		"teacher": {
+			"type": "script",
+			"path": "script/game_scene/character/teacher.js",
+			"global": true
+		},
+		"gameScene": {
+			"type": "script",
+			"path": "script/game_scene/gameScene.js",
+			"global": true
+		},
+		"countdownTimer": {
+			"type": "script",
+			"path": "script/game_scene/hud/countdownTimer.js",
+			"global": true
+		},
+		"score": {
+			"type": "script",
+			"path": "script/game_scene/hud/score.js",
+			"global": true
+		},
+		"heat": {
+			"type": "script",
+			"path": "script/game_scene/effect/heat.js",
+			"global": true
+		},
+		"surprise": {
+			"type": "script",
+			"path": "script/game_scene/effect/surprise.js",
+			"global": true
+		},
+		"titleScene": {
+			"type": "script",
+			"path": "script/title_scene/titleScene.js",
+			"global": true
+		},
+		"startTimer": {
+			"type": "script",
+			"path": "script/title_scene/startTimer.js",
+			"global": true
+		},
+		"img_teacher": {
+			"type": "image",
+			"path": "image/img_teacher.png",
+			"width": 780,
+			"height": 128
+		},
+		"img_player": {
+			"type": "image",
+			"path": "image/img_player.png",
+			"width": 650,
+			"height": 128
+		},
+		"img_student_male": {
+			"type": "image",
+			"path": "image/img_student_male.png",
+			"width": 260,
+			"height": 128
+		},
+		"img_student_female": {
+			"type": "image",
+			"path": "image/img_student_female.png",
+			"width": 260,
+			"height": 128
+		},
+		"img_bg": {
+			"type": "image",
+			"path": "image/img_bg.png",
+			"width": 352,
+			"height": 720
+		},
+		"img_heat": {
+			"type": "image",
+			"path": "image/img_heat.png",
+			"width": 192,
+			"height": 64
+		},
+		"img_surprise": {
+			"type": "image",
+			"path": "image/img_surprise.png",
+			"width": 64,
+			"height": 64
+		},
+		"se_kaminari": {
+			"type": "audio",
+			"path": "audio/kaminarikaminari",
+			"systemId": "sound",
+			"duration": 658,
+			"hint": {
+				"extensions": [
+					".m4a",
+					".ogg"
+				]
+			}
+		},
+		"bgm": {
+			"type": "audio",
+			"path": "audio/BGM084-100511-moyashitsukusuze-wav",
+			"systemId": "music",
+			"duration": 41143,
+			"hint": {
+				"extensions": [
+					".m4a",
+					".ogg"
+				]
+			}
+		},
+		"img_exclamation_mark": {
+			"type": "image",
+			"path": "image/img_exclamation_mark.png",
+			"width": 64,
+			"height": 64
+		},
+		"exclamation": {
+			"type": "script",
+			"path": "script/game_scene/effect/exclamation.js",
+			"global": true
+		},
+		"img_effect_line": {
+			"type": "image",
+			"path": "image/img_effect_line.png",
+			"width": 512,
+			"height": 384
+		},
+		"effectLine": {
+			"type": "script",
+			"path": "script/game_scene/effect/effectLine.js",
+			"global": true
+		}
+	},
+	"moduleMainScripts": {
+		"@akashic-extension/akashic-timeline": "node_modules/@akashic-extension/akashic-timeline/lib/index.js"
+	},
+	"environment": {
+		"sandbox-runtime": "3",
+		"nicolive": {
+			"supportedModes": [
+				"ranking"
+			],
+			"preferredSessionParameters": {
+				"totalTimeLimit": 75
+			}
+		}
+	},
+	"globalScripts": [
+		"node_modules/@akashic-extension/akashic-timeline/lib/ActionType.js",
+		"node_modules/@akashic-extension/akashic-timeline/lib/Easing.js",
+		"node_modules/@akashic-extension/akashic-timeline/lib/Timeline.js",
+		"node_modules/@akashic-extension/akashic-timeline/lib/Tween.js",
+		"node_modules/@akashic-extension/akashic-timeline/lib/index.js"
+	]
+}
