@@ -50,12 +50,12 @@ export class TitleScene extends CommonScene {
 
         this.onPointDownCapture.add(_ => {
             player.startEating();
-            label.text = "クリック中は食べまくる！";
+            label.text = "長押し中は食べまくる！";
             label.invalidate();
         });
         this.onPointUpCapture.add(_ => {
             player.stopEating();
-            label.text = "画面をクリック！";
+            label.text = "画面にタッチしてね！";
             label.invalidate();
         });
     };
@@ -96,7 +96,7 @@ export class TitleScene extends CommonScene {
         new g.Label({
             scene: this,
             parent: player,
-            text: "画面をクリック！",
+            text: "画面にタッチしてね！",
             font: this.font,
             fontSize: FontSize.MEDIUM,
             x: player.width / 2,
