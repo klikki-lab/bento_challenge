@@ -165,7 +165,7 @@ export class GameScene extends CommonScene {
             if (this.player.isEating) {
                 teacher.angry(this.player);
                 this.player.scolded();
-                this.asset.getAudioById("se_kaminari").play().changeVolume(0.75);
+                this.asset.getAudioById("se_kaminari").play();
 
                 if (this.timer.isGameOver) return;
 
