@@ -8,7 +8,7 @@ export class Aura extends g.FrameSprite {
             srcHeight: 192,
             width: 128,
             height: 192,
-            opacity: 0.25,
+            opacity: 0,
             anchorX: .5,
             anchorY: .5,
             frames: [0, 1, 2],
