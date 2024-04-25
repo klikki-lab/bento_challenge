@@ -41,10 +41,16 @@ export class Teacher extends Character {
     private status: Status = Status.WAITING;
     private _level: number = 1;
 
-    constructor(scene: CommonScene, private random: g.RandomGenerator,) {
+    constructor(scene: CommonScene, private random: g.RandomGenerator, private _aura: g.FrameSprite = undefined) {
         super(scene, scene.asset.getImageById("img_teacher"));
 
         this.timeline = new tl.Timeline(scene);
+        if (_aura) {
+            _aura.x = this.width * .5;
+            _aura.y = this.height * .45;
+            _aura.hide();
+            this.append(_aura);
+        }
 
         this.normalAnimation();
         this.onFinish.add(() => {
@@ -183,6 +189,10 @@ export class Teacher extends Character {
     levelUp = (): boolean => {
         if (this._level < Teacher.MAX_LEVEL) {
             this._level++;
+            if (this._aura && !this._aura.visible()) {
+                this._aura.show();
+                this._aura.start();
+            }
             return true;
         };
         return false;
