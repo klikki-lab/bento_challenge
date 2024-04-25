@@ -3,7 +3,7 @@ import { FontSize } from "../../common/fontSize";
 export class Score extends g.Label {
 
     private static readonly ADD = 10;
-    private static readonly TARGET_SCORE = 30 * Score.ADD * 20;
+    private static readonly TARGET_SCORE = 25 * Score.ADD * 20;
 
     constructor(scene: g.Scene, font: g.DynamicFont) {
         super({
