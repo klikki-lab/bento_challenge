@@ -22,7 +22,7 @@ export class Player extends Character {
 
     get isEating(): boolean { return this._isEating && !this._isScolded; }
 
-    startEating = () => {
+    startEating = (): void => {
         this._isEating = true;
 
         this.frames = [1, 2];
@@ -32,7 +32,7 @@ export class Player extends Character {
         this.start();
     };
 
-    stopEating = () => {
+    stopEating = (): void => {
         this._isEating = false;
 
         this.frames = [0];

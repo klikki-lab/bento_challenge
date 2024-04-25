@@ -47,7 +47,7 @@ export class Teacher extends Character {
         this.timeline = new tl.Timeline(scene);
         if (_aura) {
             _aura.x = this.width * .5;
-            _aura.y = this.height * .45;
+            _aura.y = this.height * 0.45;
             _aura.hide();
             this.append(_aura);
         }
@@ -189,8 +189,14 @@ export class Teacher extends Character {
     levelUp = (): boolean => {
         if (this._level < Teacher.MAX_LEVEL) {
             this._level++;
-            if (this._aura && !this._aura.visible()) {
-                this._aura.show();
+            if (this._aura) {
+                if (!this._aura.visible()) {
+                    this._aura.show();
+                }
+                this._aura.opacity += 0.1;
+                this._aura.opacity = (Math.min(2, this._aura.opacity))
+                console.log(this._aura.opacity);
+                this._aura.modified();
                 this._aura.start();
             }
             return true;

@@ -116,7 +116,7 @@ export class GameScene extends CommonScene {
         if (this.player.isEating) {
             this.player.stopEating();
 
-            const satietyLevel = Math.floor(this.score.getSatietyLevel()) + 1;
+            const satietyLevel = Math.floor(this.score.getSatietyLevel(this.timeLimit)) + 1;
             if (satietyLevel > this.teacher.level) {
                 this.teacher.levelUp();
             }
@@ -237,7 +237,7 @@ export class GameScene extends CommonScene {
     };
 
     private showResult = (): void => {
-        const satietyLevel = this.score.getSatietyLevel();
+        const satietyLevel = this.score.getSatietyLevel(this.timeLimit);
         const label = this.createLabel(this.resultLayer, `満腹度 ${(satietyLevel * 100).toFixed(1)}%`);
         label.x = g.game.width / 2;
         label.y = g.game.height / 2 + FontSize.LARGE * 5;
