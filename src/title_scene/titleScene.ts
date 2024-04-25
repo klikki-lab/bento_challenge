@@ -14,7 +14,7 @@ export class TitleScene extends CommonScene {
         super({
             game: g.game,
             assetIds: [
-                "img_bg", "img_player", "img_teacher", "img_surprise", "img_heat",
+                "img_bg", "img_player", "img_teacher", "img_surprise", "img_heat", "img_aura",
             ]
         }, timeLimit);
 

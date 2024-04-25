@@ -171,6 +171,17 @@
 			"type": "script",
 			"path": "script/game_scene/effect/effectLine.js",
 			"global": true
+		},
+		"img_aura": {
+			"type": "image",
+			"path": "image/img_aura.png",
+			"width": 384,
+			"height": 192
+		},
+		"aura": {
+			"type": "script",
+			"path": "script/game_scene/effect/aura.js",
+			"global": true
 		}
 	},
 	"moduleMainScripts": {
@@ -183,7 +194,7 @@
 				"ranking"
 			],
 			"preferredSessionParameters": {
-				"totalTimeLimit": 78
+				"totalTimeLimit": 68
 			}
 		}
 	},

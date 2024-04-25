@@ -9,6 +9,7 @@ import { Score } from "./hud/score";
 import * as tl from "@akashic-extension/akashic-timeline";
 import { Exclamation } from "./effect/exclamation";
 import { EffectLint as EffectLine } from "./effect/effectLine";
+import { Aura } from "./effect/aura";
 
 export class GameScene extends CommonScene {
 
@@ -105,13 +106,13 @@ export class GameScene extends CommonScene {
         }
     };
 
-    private pointDownHandler = (_ev: g.PointDownEvent) => {
+    private pointDownHandler = (_ev: g.PointDownEvent): void => {
         if (!this.player.isScolded) {
             this.player.startEating();
         }
     }
 
-    private pointUpHandler = (_ev: g.PointUpEvent) => {
+    private pointUpHandler = (_ev: g.PointUpEvent): void => {
         if (this.player.isEating) {
             this.player.stopEating();
 
@@ -122,7 +123,7 @@ export class GameScene extends CommonScene {
         }
     }
 
-    private createBackground = () => {
+    private createBackground = (): void => {
         new g.FilledRect({
             scene: this,
             parent: this,
@@ -160,7 +161,7 @@ export class GameScene extends CommonScene {
     };
 
     private createTeacher = (): Teacher => {
-        const teacher = new Teacher(this, this.random);
+        const teacher = new Teacher(this, this.random, new Aura(this));
         teacher.onMonitoring.add(teacher => {
             if (this.player.isEating) {
                 teacher.angry(this.player);
