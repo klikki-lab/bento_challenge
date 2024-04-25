@@ -34,9 +34,11 @@ export class TitleScene extends CommonScene {
 
         this.createBackground();
         this.createTitle();
+        this.createMessage();
         this.createCopyright();
+
         const player = this.createPlayer();
-        const label = this.createPlayerSummary(player);
+        const description = this.createDescription(player);
 
         const timer = new StartTimer(this, this.font, this.timeLimit);
         timer.onTick.add(sec => {
@@ -50,13 +52,11 @@ export class TitleScene extends CommonScene {
 
         this.onPointDownCapture.add(_ => {
             player.startEating();
-            label.text = "長押し中は食べまくる！";
-            label.invalidate();
+            description.show();
         });
         this.onPointUpCapture.add(_ => {
             player.stopEating();
-            label.text = "画面にタッチしてね！";
-            label.invalidate();
+            description.hide();
         });
     };
 
@@ -92,17 +92,31 @@ export class TitleScene extends CommonScene {
         return player;
     };
 
-    private createPlayerSummary = (player: Player): g.Label =>
+    private createMessage = (): g.Label =>
+        new g.Label({
+            scene: this,
+            parent: this,
+            text: "画面にタッチしてみよう！",
+            font: this.font,
+            fontSize: FontSize.MEDIUM,
+            x: g.game.width / 2,
+            y: FontSize.LARGE * 5.5,
+            anchorX: 0.5,
+            anchorY: 0.5,
+        });
+
+    private createDescription = (player: Player): g.Label =>
         new g.Label({
             scene: this,
             parent: player,
-            text: "画面にタッチしてね！",
+            text: "長押し中は食べまくる！",
             font: this.font,
             fontSize: FontSize.MEDIUM,
             x: player.width / 2,
             y: -player.height / 4,
             anchorX: 0.5,
             anchorY: 0.5,
+            hidden: true,
         });
 
     private createScoldedSummary = (): void => {
@@ -121,7 +135,7 @@ export class TitleScene extends CommonScene {
         new g.Label({
             scene: this,
             parent: player,
-            text: "教師に見つかるとタイムロスだ！",
+            text: "先生に見つかるとタイムロスだ！",
             font: this.font,
             fontSize: FontSize.MEDIUM,
             x: player.width / 2,
