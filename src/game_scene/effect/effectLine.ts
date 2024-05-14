@@ -1,4 +1,4 @@
-export class EffectLint extends g.Sprite {
+export class EffectLine extends g.Sprite {
 
     constructor(scene: g.Scene) {
         super({

@@ -8,7 +8,7 @@ import { CountdownTimer } from "./hud/countdownTimer";
 import { Score } from "./hud/score";
 import * as tl from "@akashic-extension/akashic-timeline";
 import { Exclamation } from "./effect/exclamation";
-import { EffectLint as EffectLine } from "./effect/effectLine";
+import { EffectLine } from "./effect/effectLine";
 import { Aura } from "./effect/aura";
 
 export class GameScene extends CommonScene {
