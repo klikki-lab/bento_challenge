@@ -10,6 +10,8 @@ import * as tl from "@akashic-extension/akashic-timeline";
 import { Exclamation } from "./effect/exclamation";
 import { EffectLine } from "./effect/effectLine";
 import { Aura } from "./effect/aura";
+import { Button } from "../common/button";
+import { TitleScene } from "../title_scene/titleScene";
 
 export class GameScene extends CommonScene {
 
@@ -26,13 +28,13 @@ export class GameScene extends CommonScene {
     private score: Score;
     private timer: CountdownTimer;
 
-    constructor(param: GameMainParameterObject, timeLimit: number) {
+    constructor(private param: GameMainParameterObject, timeLimit: number) {
         super({
             game: g.game,
             assetIds: [
                 "img_bg", "img_player", "img_teacher", "img_student_male", "img_student_female",
                 "img_surprise", "img_heat", "img_exclamation_mark", "img_effect_line",
-                "se_kaminari", "bgm"
+                "se_kaminari", "img_aura", "bgm",
             ],
         }, timeLimit);
 
@@ -225,7 +227,10 @@ export class GameScene extends CommonScene {
         }
 
         this.showFinish();
-        this.setTimeout(this.showResult, 1000 * 2);
+        this.setTimeout(() => {
+            this.showResult();
+            //this.showRetryButton();
+        }, 1000 * 2);
     };
 
     private showFinish = (): void => {
@@ -242,6 +247,32 @@ export class GameScene extends CommonScene {
         label.x = g.game.width / 2;
         label.y = g.game.height / 2 + FontSize.LARGE * 5;
         label.modified();
+    };
+
+    private showRetryButton = (): void => {
+        const font = new g.DynamicFont({
+            game: g.game,
+            fontFamily: "sans-serif",
+            fontWeight: "bold",
+            strokeWidth: FontSize.MEDIUM / 6,
+            strokeColor: "#222",
+            fontColor: "white",
+            size: FontSize.MEDIUM,
+        });
+        const retryButton = new Button(this, font, "RETRY");
+        retryButton.x = g.game.width - retryButton.width / 2 - FontSize.MEDIUM;
+        retryButton.y = g.game.height - retryButton.height / 2 - FontSize.MEDIUM;
+        retryButton.onClicked.add(_ => {
+            g.game.vars.gameState.score = 0;
+            this.asset.getAudioById("bgm").stop();
+
+            const titleScene = new TitleScene(7);
+            titleScene.onFinish.add(() => {
+                g.game.replaceScene(new GameScene(this.param, 50));
+            });
+            g.game.replaceScene(titleScene);
+        });
+        this.append(retryButton);
     };
 
     private createLabel = (parent: g.E | g.Scene, text: string, fontSize: number = FontSize.LARGE) => new g.Label({

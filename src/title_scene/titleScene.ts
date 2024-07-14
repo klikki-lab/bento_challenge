@@ -1,3 +1,4 @@
+import { Button } from "../common/button";
 import { CommonScene } from "../common/commonScene";
 import { FontSize } from "../common/fontSize";
 import { Player } from "../game_scene/character/player";
@@ -50,11 +51,32 @@ export class TitleScene extends CommonScene {
         timer.start();
         this.append(timer);
 
-        this.onPointDownCapture.add(_ => {
+        // description.show();
+        // this.createScoldedSummary();
+        // const font = new g.DynamicFont({
+        //     game: g.game,
+        //     fontFamily: "sans-serif",
+        //     fontWeight: "bold",
+        //     strokeWidth: FontSize.MEDIUM / 6,
+        //     strokeColor: "#222",
+        //     fontColor: "white",
+        //     size: FontSize.MEDIUM,
+        // });
+        // const startButton = new Button(this, font, "START!");
+        // startButton.x = g.game.width / 2;
+        // startButton.y = g.game.height - startButton.height * 1.25;
+        // startButton.onClicked.add(_ => this.onFinish.fire());
+        // this.append(startButton);
+
+        this.onPointDownCapture.add(ev => {
+            if (ev.target instanceof Button) return;
+
             player.startEating();
             description.show();
         });
-        this.onPointUpCapture.add(_ => {
+        this.onPointUpCapture.add(ev => {
+            if (ev.target instanceof Button) return;
+
             player.stopEating();
             description.hide();
         });

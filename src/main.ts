@@ -13,7 +13,7 @@ export function main(param: GameMainParameterObject): void {
 
     const titleScene = new TitleScene(7);
     titleScene.onFinish.add(() => {
-        g.game.pushScene(new GameScene(param, 50));
+        g.game.replaceScene(new GameScene(param, 50));
     });
     g.game.pushScene(titleScene);
 }

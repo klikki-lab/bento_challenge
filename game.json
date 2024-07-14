@@ -182,6 +182,11 @@
 			"type": "script",
 			"path": "script/game_scene/effect/aura.js",
 			"global": true
+		},
+		"button": {
+			"type": "script",
+			"path": "script/common/button.js",
+			"global": true
 		}
 	},
 	"moduleMainScripts": {
